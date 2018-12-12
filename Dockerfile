@@ -20,11 +20,12 @@ RUN cd SLiM/build && cmake .. && make all -j 4
 RUN cp SLiM/build/slim /bin
 RUN rm -fR SLiM*
 
-# RUN conda install --quiet --yes \
-#     msprime \
-#     && conda clean -tipsy 
+# Install zarr from conda to avoid building numcodecs.
+RUN conda install --quiet --yes \
+    zarr \
+    && conda clean -tipsy 
 
-RUN pip install msprime pyslim
+RUN pip install tsinfer pyslim
 
 RUN fix-permissions /home/jovyan
 USER $NB_UID
