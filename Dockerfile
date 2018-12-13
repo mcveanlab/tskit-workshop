@@ -22,7 +22,7 @@ RUN rm -fR SLiM*
 
 # Install zarr from conda to avoid building numcodecs.
 RUN conda install --quiet --yes \
-    zarr \
+    zarr scikit-allel \
     && conda clean -tipsy 
 
 # Install ete
