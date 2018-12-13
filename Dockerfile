@@ -25,6 +25,9 @@ RUN conda install --quiet --yes \
     zarr \
     && conda clean -tipsy 
 
+# Install ete
+RUN conda install --quiet --yes -c etetoolkit ete3 ete_toolchain
+
 RUN pip install tsinfer pyslim
 
 # nbgitpuller to pull in data files, images etc.
