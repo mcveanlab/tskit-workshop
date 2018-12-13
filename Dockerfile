@@ -27,5 +27,9 @@ RUN conda install --quiet --yes \
 
 RUN pip install tsinfer pyslim
 
+# nbgitpuller to pull in data files, images etc.
+RUN pip install nbgitpuller
+RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
+
 RUN fix-permissions /home/jovyan
 USER $NB_UID
